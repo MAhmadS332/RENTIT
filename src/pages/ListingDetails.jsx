@@ -80,9 +80,9 @@ const ListingDetails = () => {
     <>
       {!listItem && <Loading />}
       {listItem && (
-        <div className="grid md:grid-cols-2 py-5 justify-center items-center gap-5">
+        <div className="grid md:grid-cols-2 py-5 justify-center items-center gap-5 mx-3 sm:mx-5 w-full">
           <img
-            className="border-sky-500 border-2 p-0.5 ml-auto justify-self-right h-full max-h-96"
+            className="border-sky-500 border-2 p-0.5 ml-auto justify-self-right h-full"
             src={listItem.img}
             alt={listItem.title + "'s Icon"}
           />

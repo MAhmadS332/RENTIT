@@ -43,7 +43,7 @@ const BookingTable = ({ bookings, removeBooking }) => {
   };
 
   return (
-    <div className="overflow-x-auto my-8 text-xs md:text-sm xl:text-base">
+    <div className="overflow-x-auto my-8 text-xs md:text-sm xl:text-base mx-3 sm:mx-5">
       <Toaster />
       <h2 className="text-2xl py-2 font-bold text-sky-600">My Bookings</h2>
       <table className="min-w-full table-auto border-collapse">

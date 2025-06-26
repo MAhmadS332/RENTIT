@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SearchBar = ({setSearchText}) => {
+const SearchBar = ({ setSearchText }) => {
   const [input, setInput] = useState("");
   const submitHandler = (e) => {
     e.preventDefault();
@@ -9,7 +9,10 @@ const SearchBar = ({setSearchText}) => {
 
   return (
     <div className="flex justify-center">
-      <form onSubmit ={submitHandler} className=" border-gray-500 border flex items-center w-2/3 sm:w-1/3 rounded-full p-2 gap-2">
+      <form
+        onSubmit={submitHandler}
+        className=" border-gray-500 border flex items-center w-2/3 sm:w-1/3 rounded-full p-2 gap-2"
+      >
         <input
           className="p-1 text-sm ps-2 w-full outline-none box-border"
           value={input}
@@ -18,6 +21,24 @@ const SearchBar = ({setSearchText}) => {
             setInput(e.target.value);
           }}
         />
+        <button
+          className="text-black rounded-full"
+          type="reset"
+          onClick={() => {
+            setInput("");
+            setSearchText("");
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="black"
+          >
+            <path d="m336-280-56-56 144-144-144-143 56-56 144 144 143-144 56 56-144 143 144 144-56 56-143-144-144 144Z" />
+          </svg>
+        </button>
         <button className="bg-sky-400 rounded-full p-1" type="submit">
           <svg
             xmlns="http://www.w3.org/2000/svg"

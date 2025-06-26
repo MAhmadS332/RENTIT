@@ -10,7 +10,7 @@
 }
 
 body{
-    @apply font-poppins overflow-x-clip p-0 mx-5 h-screen;
+    @apply font-poppins overflow-x-clip p-0 h-screen;
 }
 
 html{

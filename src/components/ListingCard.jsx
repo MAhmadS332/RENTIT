@@ -6,7 +6,7 @@ const ListingCard = (props) => {
     // <div className="grid gri gap-6">
     /* <div className="my-5 flex justify-center gap-6 flex-wrap"> */
     <div
-      className="grid my-5 gap-6 justify-center"
+      className="grid my-5 gap-6 justify-center mx-3 sm:mx-5"
       style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 0.25fr)" }}
     >
       {props.listItems.map((item) => (
