@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Loading from "../components/UI components/Loading";
 import { AuthContext } from "../context/AuthContext";
-import { list } from "postcss";
 
 const ListingDetails = () => {
   const authContext = useContext(AuthContext);
@@ -18,12 +17,10 @@ const ListingDetails = () => {
 
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const [listItem, setListItem] = useState(null);
-  const [isBooked, setIsBooked] = useState(null);
+  const [isBooked, setIsBooked] = useState(false);
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
   const id = useParams().id;
-
-  console.log(listItem);
 
   useEffect(() => {
     const getItem = async () => {
@@ -42,7 +39,9 @@ const ListingDetails = () => {
   useEffect(() => {
     const checkBooked = async () => {
       console.log("Checking bookings for userId: ", userId);
-      if (!userId) return; // If user is not logged in, no need to check bookings
+      if (!userId) {
+        return;
+      } // If user is not logged in, no need to check bookings
       try {
         const response = await axios.get(
           BACKEND_URL + `/api/bookings/${userId}`,
@@ -57,6 +56,8 @@ const ListingDetails = () => {
               setIsBooked(true);
               setCheckInDate(new Date(booking.checkIn).toLocaleDateString());
               setCheckOutDate(new Date(booking.checkOut).toLocaleDateString());
+            } else {
+              setIsBooked(false);
             }
           });
         }
@@ -110,18 +111,15 @@ const ListingDetails = () => {
                 {listItem.pricePerNight}
                 <div className="text-sm">/night</div>
               </div>
-              {isBooked && (
-                <div className="w-max bg-sky-500 font-bold my-1 text-gray-50 xl:text-xl hover:bg-gray-300 hover:text-gray-950 shadow-sm shadow-gray-400 p-2 box-border">
-                  {isBooked == false && (
-                    <Link to={`/book/${listItem.id}`}>Book Now</Link>
-                  )}
-                  {isBooked == true && (
-                    <div>
-                      Booked between {checkInDate} and {checkOutDate}
-                    </div>
-                  )}
-                </div>
-              )}
+
+              <div className="w-max bg-sky-500 font-bold my-1 text-gray-50 xl:text-xl hover:bg-gray-300 hover:text-gray-950 shadow-sm shadow-gray-400 p-2 box-border">
+                {!isBooked && <Link to={`/book/${listItem.id}`}>Book Now</Link>}
+                {isBooked && (
+                  <div>
+                    Booked between {checkInDate} and {checkOutDate}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
