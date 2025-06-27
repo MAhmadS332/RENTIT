@@ -112,14 +112,16 @@ const ListingDetails = () => {
                 <div className="text-sm">/night</div>
               </div>
 
-              <div className="w-max bg-sky-500 font-bold my-1 text-gray-50 xl:text-xl hover:bg-gray-300 hover:text-gray-950 shadow-sm shadow-gray-400 p-2 box-border">
-                {!isBooked && <Link to={`/book/${listItem.id}`}>Book Now</Link>}
-                {isBooked && (
-                  <div>
-                    Booked between {checkInDate} and {checkOutDate}
-                  </div>
-                )}
-              </div>
+              {!isBooked && (
+                <div className="w-max bg-sky-500 font-bold my-1 text-gray-50 xl:text-xl hover:bg-gray-300 hover:text-gray-950 shadow-sm shadow-gray-400 p-2 box-border">
+                  {<Link to={`/book/${listItem.id}`}>Book Now</Link>}
+                </div>
+              )}
+              {isBooked && (
+                <div className="p-2 bg-gray-300 break-words overflow-hidden font-bold w-72 sm:w-max">
+                  Booked between {checkInDate} and {checkOutDate}
+                </div>
+              )}
             </div>
           </div>
         </div>
