@@ -126,7 +126,7 @@ const BookingPage = () => {
   // }, [totalDays]);
 
   return (
-    <div className="py-10 my-10">
+    <div className="py-10 my-10 mx-5 sm:mx-5">
       <Toaster />
       {!item && <Loading />}
       {!authContext.isLoggedIn && <h1>Please Login to Book</h1>}

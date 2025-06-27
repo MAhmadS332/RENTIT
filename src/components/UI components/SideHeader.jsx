@@ -14,7 +14,7 @@ const SideHeader = () => {
   }, [location.pathname]);
 
   return (
-    <ul className="flex items-center gap-4 text-sm">
+    <ul className="flex items-center gap-4 text-sm mr-5">
       {authContext.isLoggedIn && authContext.user.role === "host" && (
         <li className="p-3 hover:bg-gray-100 transition hidden sm:inline">
           <Link to="/listing/add">Rent your home</Link>
@@ -22,7 +22,7 @@ const SideHeader = () => {
       )}
       <li className="relative z-[100]">
         <div
-          className="flex items-center gap-3 cursor-pointer p-3 shadow hover:bg-gray-100 transition"
+          className="flex items-center gap-3 cursor-pointer py-3 hover:bg-gray-100 transition"
           onClick={() => setDropdown(!dropdown)}
         >
           {dropdown ? (
@@ -54,10 +54,10 @@ const SideHeader = () => {
                 className="w-8 h-8 rounded-full"
               />
               <div className="flex flex-col">
-                <div className="font-semibold text-gray-800 truncate w-24 -my-0.5">
+                <div className="font-semibold text-gray-800 truncate -my-0.5 w-max">
                   {authContext.user.name}
                 </div>
-                <div className="text-sky-500 font-medium -my-1">
+                <div className="text-sky-500 font-medium w-max -my-1">
                   {authContext.user.userId !== ADMIN_ID
                     ? authContext.user.role.charAt(0).toUpperCase() +
                       authContext.user.role.slice(1)

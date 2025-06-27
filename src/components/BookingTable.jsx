@@ -10,8 +10,13 @@ const BookingTable = ({ bookings, removeBooking }) => {
   const authContext = useContext(AuthContext);
   const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
   const [isLoading, setIsLoading] = useState(false);
+  const [bookingId, setBookingId] = useState(null);
+
   const deleteHandler = async (id) => {
     setIsLoading(true);
+    console.log("User ID: ", authContext.user.userId);
+    console.log("Admin ID: ", ADMIN_ID);
+    console.log("Booking ID: ", id);
     try {
       await axios.delete(
         authContext.user.userId !== ADMIN_ID
@@ -26,10 +31,12 @@ const BookingTable = ({ bookings, removeBooking }) => {
       removeBooking(id);
       toast.success("Booking Removed Successfully");
       setIsLoading(false);
+      setBookingId(null);
     } catch (err) {
       toast.error("Error Removing Booking");
       console.log(err);
       setIsLoading(false);
+      setBookingId(null);
     }
   };
   // Format date to a readable format
@@ -81,9 +88,12 @@ const BookingTable = ({ bookings, removeBooking }) => {
                 {" "}
                 <button
                   className="bg-red-500 text-white p-1 rounded-md"
-                  onClick={() => deleteHandler(booking.id)}
+                  onClick={() => {
+                    setBookingId(booking.id);
+                    deleteHandler(booking.id);
+                  }}
                 >
-                  {isLoading ? (
+                  {isLoading && booking.id === bookingId ? (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       height="22px"

@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="items-center flex px-5 h-min">
+    <header className="items-center flex h-min">
+      <div className="flex items-center gap-2 ml-5">
         <Link to="/">
           <img src="/imgs/logo.png" alt="Rent It Logo" width={60} />
         </Link>
@@ -15,12 +16,13 @@ const Header = () => {
         >
           Rent It
         </Link>
-        <div className="ml-10 hidden lg:flex">
-          <Navbar />
-        </div>
-        <div className="justify-self-end ml-auto">
-          <SideHeader />
-        </div>
+      </div>
+      <div className="ml-10 hidden lg:flex">
+        <Navbar />
+      </div>
+      <div className="justify-self-end ml-auto">
+        <SideHeader />
+      </div>
     </header>
   );
 };

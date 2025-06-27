@@ -11,7 +11,7 @@ const SearchBar = ({ setSearchText }) => {
     <div className="flex justify-center">
       <form
         onSubmit={submitHandler}
-        className=" border-gray-500 border flex items-center w-2/3 sm:w-1/3 rounded-full p-2 gap-2"
+        className=" border-gray-500 border flex items-center w-full mx-5 sm:w-1/3 rounded-full p-2 gap-2"
       >
         <input
           className="p-1 text-sm ps-2 w-full outline-none box-border"

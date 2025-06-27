@@ -2,7 +2,7 @@ import React from "react";
 
 const Error = () => {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center mx-5 my-28">
       <h1 className="text-4xl font-bold text-gray-800">Failed to Load</h1>
       <p className="text-gray-600 mt-2 text-center">
         Sorry, something went wrong while loading this page. <br />
