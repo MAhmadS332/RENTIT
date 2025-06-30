@@ -2,6 +2,8 @@
 
 This project integrates a React-based frontend with a Node.js and Express.js backend to provide an Airbnb-inspired platform. It allows users to view property listings, navigate detailed pages for each property, book property.
 
+[Live Preview](https://rentitapp.vercel.app/)
+
 ## Features
 
 1. **Backend**:
