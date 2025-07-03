@@ -4,6 +4,8 @@ This project integrates a React-based frontend with a Node.js and Express.js bac
 
 [Live Preview](https://rentitapp.vercel.app/)
 
+**Note** This is the front end part of the project, See the backend repo [Rentit Backend Repository](https://github.com/MAhmadS332/RENTIT_BACKEND.git)
+
 ## Features
 
 1. **Backend**:
